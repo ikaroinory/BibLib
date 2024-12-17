@@ -1,0 +1,23 @@
+<Window x:Class="BibLib.Views.SettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BibLib.Views"
+        mc:Ignorable="d"
+        Title="Settings" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="160" Background="#F4F4F4">
+            <TreeView>
+                <TreeViewItem Name="WelcomeTreeViewItem" Header="Welcome" Selected="WelcomeTreeViewItem_OnSelected" />
+                <TreeViewItem Name="AdvancedTreeViewItem" Header="Advanced" IsExpanded="True" >
+                    <TreeViewItem Name="UserDataTreeViewItem" Header="User Data" Selected="UserDataTreeViewItem_OnSelected" />
+                </TreeViewItem>
+            </TreeView>
+        </StackPanel>
+        <Frame Name="MainContent" DockPanel.Dock="Right" Padding="16" NavigationUIVisibility="Hidden"
+               VerticalAlignment="Top"
+               Height="600" Width="600"
+               Source="../Pages/WelcomeSettingsPage.xaml" />
+    </DockPanel>
+</Window>

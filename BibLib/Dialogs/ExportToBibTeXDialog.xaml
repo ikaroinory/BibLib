@@ -1,0 +1,28 @@
+<Window x:Class="BibLib.Dialogs.ExportToBibTeXDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BibLib.Dialogs"
+        mc:Ignorable="d"
+        Title="ExportToBibTeXDialog"
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="BibTexTextBox"
+                 Grid.Row="0"
+                 Margin="0,0,0,10"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto" />
+        <Button Grid.Row="1"
+                Width="80"
+                HorizontalAlignment="Center"
+                Content="Copy"
+                Click="CopyButton_OnClick" />
+    </Grid>
+</Window>
