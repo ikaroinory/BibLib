@@ -23,6 +23,12 @@ public partial class LibraryView : Window
 
     private void BibliographyDataGrid_OnLoadingRow(object? sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
 
+    private void AddBibliographyMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        var addBibliographyDialog = new AddBibliographyDialog();
+        if (addBibliographyDialog.ShowDialog() == false) return;
+    }
+
     private void AddBibliographyFromBibTeXMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
         var addBibliographyFromBibTeXDialog = new AddBibliographyFromBibTeXDialog();
@@ -44,10 +50,17 @@ public partial class LibraryView : Window
         _viewModel.Refresh();
     }
 
-    private void AddBibliographyMenuItem_OnClick(object sender, RoutedEventArgs e)
+    private void RemoveFromLibraryMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
-        var addBibliographyDialog = new AddBibliographyDialog();
-        if (addBibliographyDialog.ShowDialog() == false) return;
+        _viewModel.RemoveRange().ToList().ForEach(pair =>
+        {
+            if (pair.Value == 0) return;
+
+            var word = pair.Value == 1 ? "has" : "have";
+            MessageBox.Show($"{pair.Value} {pair.Key} {word} been removed.");
+        });
+
+        _viewModel.Refresh();
     }
 
     private void SettingsMenuItem_OnClick(object sender, RoutedEventArgs e) => new SettingsView().ShowDialog();

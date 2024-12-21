@@ -25,9 +25,12 @@ public class LibraryViewModel : BaseViewModel
 
     public void Refresh()
     {
-        _articles.Clear();
         using var database = new ApplicationDatabase();
+        
+        _articles.Clear();
         database.Articles.ToList().ForEach(Articles.Add);
+        
+        _books.Clear();
         database.Books.ToList().ForEach(Books.Add);
     }
 
@@ -42,6 +45,21 @@ public class LibraryViewModel : BaseViewModel
         countDictionary["article"] = database.SaveChanges();
 
         database.Books.AddRange(list.OfType<BookBibliography>());
+        countDictionary["book"] = database.SaveChanges();
+
+        return countDictionary;
+    }
+
+    public IDictionary<string, int> RemoveRange()
+    {
+        var countDictionary = new Dictionary<string, int>();
+
+        using var database = new ApplicationDatabase();
+
+        database.Articles.RemoveRange(_articles.ToList().Where(bib => bib.IsSelected));
+        countDictionary["article"] = database.SaveChanges();
+
+        database.Books.RemoveRange(_books.ToList().Where(bib => bib.IsSelected));
         countDictionary["book"] = database.SaveChanges();
 
         return countDictionary;

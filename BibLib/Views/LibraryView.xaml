@@ -26,12 +26,14 @@
                 <MenuItem Header="Add Bibliography" Click="AddBibliographyMenuItem_OnClick" />
                 <MenuItem Header="Add Bibliography from BibTeX" Click="AddBibliographyFromBibTeXMenuItem_OnClick" />
                 <Separator />
+                <MenuItem Header="Remove from Library" Click="RemoveFromLibraryMenuItem_OnClick" />
+                <Separator />
                 <MenuItem Header="Export to BibTeX" Click="ExportToBibTeXMenuItem_OnClick" />
             </MenuItem>
         </Menu>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="Article">
+        <TabControl x:Name="LibraryTabControl" Grid.Row="1">
+            <TabItem Name="ArticleTabItem" Header="Article">
                 <DataGrid x:Name="ArticleBibliographyDataGrid"
                           ItemsSource="{Binding Articles}"
                           AutoGenerateColumns="False"
@@ -49,7 +51,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="Book">
+            <TabItem Name="BookTabItem" Header="Book">
                 <DataGrid
                     x:Name="BookBibliographyDataGrid"
                     ItemsSource="{Binding Books}"
