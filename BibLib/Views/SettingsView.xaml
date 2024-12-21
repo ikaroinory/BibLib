@@ -7,14 +7,12 @@
         mc:Ignorable="d"
         Title="Settings" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Left" Width="160" Background="#F4F4F4">
-            <TreeView>
-                <TreeViewItem Name="WelcomeTreeViewItem" Header="Welcome" Selected="WelcomeTreeViewItem_OnSelected" />
-                <TreeViewItem Name="AdvancedTreeViewItem" Header="Advanced" IsExpanded="True" >
-                    <TreeViewItem Name="UserDataTreeViewItem" Header="User Data" Selected="UserDataTreeViewItem_OnSelected" />
-                </TreeViewItem>
-            </TreeView>
-        </StackPanel>
+        <TreeView Width="160" BorderThickness="0">
+            <TreeViewItem Name="WelcomeTreeViewItem" Header="Welcome" Selected="WelcomeTreeViewItem_OnSelected" />
+            <TreeViewItem Name="AdvancedTreeViewItem" Header="Advanced" IsExpanded="True">
+                <TreeViewItem Name="UserDataTreeViewItem" Header="User Data" Selected="UserDataTreeViewItem_OnSelected" />
+            </TreeViewItem>
+        </TreeView>
         <Frame Name="MainContent" DockPanel.Dock="Right" Padding="16" NavigationUIVisibility="Hidden"
                VerticalAlignment="Top"
                Height="600" Width="600"
