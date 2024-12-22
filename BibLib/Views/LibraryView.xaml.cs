@@ -78,4 +78,30 @@ public partial class LibraryView : Window
         };
         exportToBibTeXDialog.ShowDialog();
     }
+
+    private void SelectAllMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        var selectedItem = (TabItem)LibraryTabControl.SelectedItem;
+
+        if (selectedItem == ArticleTabItem)
+            _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = true);
+        else if (selectedItem == BookTabItem)
+            _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = true);
+
+
+        ArticleBibliographyDataGrid.Items.Refresh();
+    }
+
+    private void DeselectAllMenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        var selectedItem = (TabItem)LibraryTabControl.SelectedItem;
+
+        if (selectedItem == ArticleTabItem)
+            _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = false);
+        else if (selectedItem == BookTabItem)
+            _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = false);
+
+
+        ArticleBibliographyDataGrid.Items.Refresh();
+    }
 }

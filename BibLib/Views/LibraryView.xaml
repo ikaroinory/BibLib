@@ -29,11 +29,14 @@
                 <MenuItem Header="Remove from Library" Click="RemoveFromLibraryMenuItem_OnClick" />
                 <Separator />
                 <MenuItem Header="Export to BibTeX" Click="ExportToBibTeXMenuItem_OnClick" />
+                <Separator />
+                <MenuItem Header="Select All" Click="SelectAllMenuItem_OnClick" />
+                <MenuItem Header="Deselect All" Click="DeselectAllMenuItem_OnClick" />
             </MenuItem>
         </Menu>
 
         <TabControl x:Name="LibraryTabControl" Grid.Row="1">
-            <TabItem Name="ArticleTabItem" Header="Article">
+            <TabItem x:Name="ArticleTabItem" Header="Article">
                 <DataGrid x:Name="ArticleBibliographyDataGrid"
                           ItemsSource="{Binding Articles}"
                           AutoGenerateColumns="False"
@@ -51,7 +54,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Name="BookTabItem" Header="Book">
+            <TabItem x:Name="BookTabItem" Header="Book">
                 <DataGrid
                     x:Name="BookBibliographyDataGrid"
                     ItemsSource="{Binding Books}"
