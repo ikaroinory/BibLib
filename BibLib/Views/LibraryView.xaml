@@ -43,7 +43,7 @@
                           CanUserAddRows="False"
                           LoadingRow="BibliographyDataGrid_OnLoadingRow">
                     <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
+                        <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" />
                         <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
                         <DataGridTextColumn Header="Author" Width="150" Binding="{Binding Author}" />
                         <DataGridTextColumn Header="Journal" Width="150" Binding="{Binding Journal}" />
@@ -62,7 +62,7 @@
                     CanUserAddRows="False"
                     LoadingRow="BibliographyDataGrid_OnLoadingRow">
                     <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
+                        <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" />
                         <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
                         <DataGridTextColumn Header="Author" Width="120" Binding="{Binding Author}" />
                         <DataGridTextColumn Header="Year" Width="50" Binding="{Binding Year}" />
