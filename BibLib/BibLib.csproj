@@ -6,11 +6,12 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        <CETCompat>false</CETCompat>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BibLib.Utils\BibLib.Utils.csproj" />
-      <ProjectReference Include="..\BibLib.ViewModels\BibLib.ViewModels.csproj" />
+        <ProjectReference Include="..\BibLib.Utils\BibLib.Utils.csproj"/>
+        <ProjectReference Include="..\BibLib.ViewModels\BibLib.ViewModels.csproj"/>
     </ItemGroup>
 
 </Project>
