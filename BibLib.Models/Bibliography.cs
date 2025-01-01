@@ -5,15 +5,28 @@ namespace BibLib.Models;
 
 public abstract class Bibliography(DateTime createTime)
 {
-    [Key] public Guid Guid { get; set; } = Guid.NewGuid();
+    [Column(Order = 0)]
+    [Key]
+    public Guid Guid { get; set; } = Guid.NewGuid();
 
-    public string Title { get; set; } = "";
+    [Column(Order = 1)]
+    public string Author { get; set; } = string.Empty;
+
+    [Column(Order = 2)]
+    public string Title { get; set; } = string.Empty;
+
+    [Column(Order = 3)]
+    public int Year { get; set; }
+
+    public int? Month { get; set; }
+    public string? Note { get; set; }
+
     public DateTime CreateTime { get; set; } = createTime;
     public DateTime? UpdateTime { get; set; }
-
     public string? FilePath { get; set; }
 
-    [NotMapped] public bool IsSelected { get; set; } = false;
+    [NotMapped]
+    public bool IsSelected { get; set; }
 
     protected Bibliography() : this(DateTime.Now) { }
 }
