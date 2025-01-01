@@ -10,6 +10,7 @@ public class ApplicationDatabase : DbContext
     public DbSet<ConferenceBibliography> Conferences { get; set; }
     public DbSet<MastersThesisBibliography> MastersTheses { get; set; }
     public DbSet<PhDThesisBibliography> PhDTheses { get; set; }
+    public DbSet<ProceedingsBibliography> Proceedings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlite($"Data Source={GlobalResources.DatabaseFilePath}");
