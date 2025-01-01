@@ -5,6 +5,8 @@ namespace BibLib.Models;
 [Table("Books")]
 public class BookBibliography : Bibliography
 {
+    public string Author { get; set; } = string.Empty;
+    
     public string? Publisher { get; set; }
     public string? City { get; set; }
     public string? Abstract { get; set; }

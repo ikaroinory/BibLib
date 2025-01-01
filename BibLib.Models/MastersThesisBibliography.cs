@@ -5,6 +5,7 @@ namespace BibLib.Models;
 [Table("MastersTheses")]
 public class MastersThesisBibliography : Bibliography
 {
+    public string Author { get; set; } = string.Empty;
     public string School { get; set; } = string.Empty;
 
     public string? Type { get; set; }

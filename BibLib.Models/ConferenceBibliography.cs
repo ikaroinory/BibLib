@@ -5,6 +5,7 @@ namespace BibLib.Models;
 [Table("Conferences")]
 public class ConferenceBibliography : Bibliography
 {
+    public string Author { get; set; } = string.Empty;
     public string BookTitle { get; set; } = string.Empty;
 
     public string? Editor { get; set; }

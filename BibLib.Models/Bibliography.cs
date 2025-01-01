@@ -10,12 +10,9 @@ public abstract class Bibliography(DateTime createTime)
     public Guid Guid { get; set; } = Guid.NewGuid();
 
     [Column(Order = 1)]
-    public string Author { get; set; } = string.Empty;
-
-    [Column(Order = 2)]
     public string Title { get; set; } = string.Empty;
 
-    [Column(Order = 3)]
+    [Column(Order = 2)]
     public int Year { get; set; }
 
     public int? Month { get; set; }

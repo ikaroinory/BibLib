@@ -5,6 +5,8 @@ namespace BibLib.Models;
 [Table("Articles")]
 public class ArticleBibliography : Bibliography
 {
+    public string Author { get; set; } = string.Empty;
+    
     public string? Journal { get; set; }
     public string? Volume { get; set; }
     public int? Issue { get; set; }
