@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibLib.Utils", "BibLib.Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibLib.ViewModels", "BibLib.ViewModels\BibLib.ViewModels.csproj", "{9FBA2AA9-4E56-439E-AE62-3BDB4BE7E42D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibLib.Controls", "BibLib.Controls\BibLib.Controls.csproj", "{18E165E8-1B7F-4DD4-9EE8-A92748C3EEE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9FBA2AA9-4E56-439E-AE62-3BDB4BE7E42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FBA2AA9-4E56-439E-AE62-3BDB4BE7E42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FBA2AA9-4E56-439E-AE62-3BDB4BE7E42D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E165E8-1B7F-4DD4-9EE8-A92748C3EEE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E165E8-1B7F-4DD4-9EE8-A92748C3EEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E165E8-1B7F-4DD4-9EE8-A92748C3EEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E165E8-1B7F-4DD4-9EE8-A92748C3EEE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
