@@ -78,10 +78,10 @@
             <!--         </DataGrid.Columns> -->
             <!--     </DataGrid> -->
             <!-- </TabItem> -->
-            <TabItem Header="Article">
+            <TabItem x:Name="ArticleTabItem" Header="Article">
                 <controls:BibliographyDataGrid Fields="{Binding ArticleFields}" Bibliographies="{Binding Articles}" />
             </TabItem>
-            <TabItem Header="Book">
+            <TabItem x:Name="BookTabItem" Header="Book">
                 <controls:BibliographyDataGrid Fields="{Binding BookFields}" Bibliographies="{Binding Books}" />
             </TabItem>
         </TabControl>

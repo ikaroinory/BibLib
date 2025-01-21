@@ -16,9 +16,6 @@ public partial class LibraryView : Window
 
         _viewModel = new LibraryViewModel();
         DataContext = _viewModel;
-
-        ArticleBibliographyDataGrid.ItemsSource = _viewModel.Articles;
-        BookBibliographyDataGrid.ItemsSource = _viewModel.Books;
     }
 
     private void BibliographyDataGrid_OnLoadingRow(object? sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
@@ -87,9 +84,6 @@ public partial class LibraryView : Window
             _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = true);
         else if (selectedItem == BookTabItem)
             _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = true);
-
-
-        ArticleBibliographyDataGrid.Items.Refresh();
     }
 
     private void DeselectAllMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -100,8 +94,5 @@ public partial class LibraryView : Window
             _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = false);
         else if (selectedItem == BookTabItem)
             _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = false);
-
-
-        ArticleBibliographyDataGrid.Items.Refresh();
     }
 }
