@@ -63,7 +63,7 @@ public partial class BibliographyDataGrid : UserControl
             DataGrid.Columns.Add(new DataGridTextColumn
             {
                 Header = field,
-                Binding = new Binding(field),
+                Binding = new Binding(field.Replace(" ", "")),
                 Width = new DataGridLength(1, DataGridLengthUnitType.Star)
             });
         }
