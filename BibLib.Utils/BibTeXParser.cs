@@ -164,11 +164,11 @@ public class BibTeXParser
                 var propertyValue = ParsePropertyValue();
                 SkipWhitespaceAndNewLines();
 
+                properties[propertyName] = propertyValue;
+
                 if (_bibString[_index] is not ',') break;
 
                 _index++; // Skip ','
-
-                properties[propertyName] = propertyValue;
 
                 SkipWhitespaceAndNewLines();
             }
