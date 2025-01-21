@@ -8,7 +8,7 @@ public partial class BibliographyDataGrid : UserControl
 {
     public static readonly DependencyProperty FieldsProperty = DependencyProperty.Register(
         nameof(Fields),
-        typeof(List<ColumnProperty>),
+        typeof(IEnumerable<string>),
         typeof(BibliographyDataGrid),
         new PropertyMetadata(default, Fields_OnChanged)
     );
@@ -20,9 +20,9 @@ public partial class BibliographyDataGrid : UserControl
         new PropertyMetadata(default, Bibliographies_OnChanged)
     );
 
-    public List<ColumnProperty> Fields
+    public IEnumerable<string> Fields
     {
-        get => (List<ColumnProperty>)GetValue(FieldsProperty);
+        get => (IEnumerable<string>)GetValue(FieldsProperty);
         set => SetValue(FieldsProperty, value);
     }
 
@@ -36,7 +36,7 @@ public partial class BibliographyDataGrid : UserControl
 
     private static void Fields_OnChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is not BibliographyDataGrid control || e.NewValue is not List<ColumnProperty> newFields) return;
+        if (d is not BibliographyDataGrid control || e.NewValue is not IEnumerable<string> newFields) return;
         control.GenerateColumns(newFields);
     }
 
@@ -49,7 +49,7 @@ public partial class BibliographyDataGrid : UserControl
 
     private void DataGrid_OnLoadingRow(object? sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
 
-    private void GenerateColumns(List<ColumnProperty> fields)
+    private void GenerateColumns(IEnumerable<string> fields)
     {
         DataGrid.Columns.Clear();
 
@@ -58,14 +58,16 @@ public partial class BibliographyDataGrid : UserControl
             Header = "Select",
             Binding = new Binding("IsSelected")
         });
-        fields.ForEach(field =>
+        foreach (var field in fields)
         {
             DataGrid.Columns.Add(new DataGridTextColumn
             {
-                Header = field.Name,
-                Binding = new Binding(field.Name),
-                Width = new DataGridLength(field.Width)
+                Header = field,
+                Binding = new Binding(field),
+                Width = new DataGridLength(1, DataGridLengthUnitType.Star)
             });
-        });
+        }
     }
+
+    public void Refresh() => DataGrid.Items.Refresh();
 }
