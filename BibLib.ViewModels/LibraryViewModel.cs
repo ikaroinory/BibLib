@@ -8,6 +8,8 @@ public class LibraryViewModel : BaseViewModel
 {
     private ObservableCollection<ArticleBibliography> _articles = [];
     private ObservableCollection<BookBibliography> _books = [];
+    private ObservableCollection<string> _articleFields = [];
+    private ObservableCollection<string> _bookFields = [];
 
     public ObservableCollection<ArticleBibliography> Articles
     {
@@ -21,15 +23,41 @@ public class LibraryViewModel : BaseViewModel
         set => Set(ref _books, value);
     }
 
-    public LibraryViewModel() => Refresh();
+    public ObservableCollection<string> ArticleFields
+    {
+        get => _articleFields;
+        set => Set(ref _articleFields, value);
+    }
 
-    public void Refresh()
+    public ObservableCollection<string> BookFields
+    {
+        get => _bookFields;
+        set => Set(ref _bookFields, value);
+    }
+
+
+    public LibraryViewModel()
+    {
+        RefreshBibliographies();
+
+        foreach (var field in GlobalResources.Configuration.LibraryFields.Article)
+        {
+            ArticleFields.Add(field);
+        }
+
+        foreach (var field in GlobalResources.Configuration.LibraryFields.Book)
+        {
+            BookFields.Add(field);
+        }
+    }
+
+    public void RefreshBibliographies()
     {
         using var database = new ApplicationDatabase();
-        
+
         _articles.Clear();
         database.Articles.ToList().ForEach(Articles.Add);
-        
+
         _books.Clear();
         database.Books.ToList().ForEach(Books.Add);
     }

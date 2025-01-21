@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:BibLib.Views"
         xmlns:viewModels="clr-namespace:BibLib.ViewModels;assembly=BibLib.ViewModels"
+        xmlns:controls="clr-namespace:BibLib.Controls;assembly=BibLib.Controls"
         mc:Ignorable="d"
         Title="BibLib"
         Height="720" Width="1280"
@@ -36,42 +37,52 @@
         </Menu>
 
         <TabControl x:Name="LibraryTabControl" Grid.Row="1">
-            <TabItem x:Name="ArticleTabItem" Header="Article">
-                <DataGrid x:Name="ArticleBibliographyDataGrid"
-                          ItemsSource="{Binding Articles}"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="False"
-                          LoadingRow="BibliographyDataGrid_OnLoadingRow">
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" />
-                        <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
-                        <DataGridTextColumn Header="Author" Width="150" Binding="{Binding Author}" />
-                        <DataGridTextColumn Header="Journal" Width="150" Binding="{Binding Journal}" />
-                        <DataGridTextColumn Header="Year" Width="50" Binding="{Binding Year}" />
-                        <DataGridTextColumn Header="Keywords" Width="120" Binding="{Binding Keywords}" />
-                        <DataGridTextColumn Header="Create Time" Width="140" Binding="{Binding CreateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
-                        <DataGridTextColumn Header="Update Time" Width="140" Binding="{Binding UpdateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+            <!-- <TabItem x:Name="ArticleTabItem" Header="Article"> -->
+            <!--     <DataGrid x:Name="ArticleBibliographyDataGrid" -->
+            <!--               ItemsSource="{Binding Articles}" -->
+            <!--               AutoGenerateColumns="False" -->
+            <!--               CanUserAddRows="False" -->
+            <!--               LoadingRow="BibliographyDataGrid_OnLoadingRow"> -->
+            <!--         <DataGrid.Columns> -->
+            <!--             <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" /> -->
+            <!--             <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" /> -->
+            <!--             <DataGridTextColumn Header="Author" Width="150" Binding="{Binding Author}" /> -->
+            <!--             <DataGridTextColumn Header="Journal" Width="150" Binding="{Binding Journal}" /> -->
+            <!--             <DataGridTextColumn Header="Year" Width="50" Binding="{Binding Year}" /> -->
+            <!--             <DataGridTextColumn Header="Keywords" Width="120" Binding="{Binding Keywords}" /> -->
+            <!--             <DataGridTextColumn Header="Create Time" Width="140" -->
+            <!--                                 Binding="{Binding CreateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" /> -->
+            <!--             <DataGridTextColumn Header="Update Time" Width="140" -->
+            <!--                                 Binding="{Binding UpdateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" /> -->
+            <!--         </DataGrid.Columns> -->
+            <!--     </DataGrid> -->
+            <!-- </TabItem> -->
+            <!-- <TabItem x:Name="BookTabItem" Header="Book"> -->
+            <!--     <DataGrid -->
+            <!--         x:Name="BookBibliographyDataGrid" -->
+            <!--         ItemsSource="{Binding Books}" -->
+            <!--         AutoGenerateColumns="False" -->
+            <!--         CanUserAddRows="False" -->
+            <!--         LoadingRow="BibliographyDataGrid_OnLoadingRow"> -->
+            <!--         <DataGrid.Columns> -->
+            <!--             <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" /> -->
+            <!--             <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" /> -->
+            <!--             <DataGridTextColumn Header="Author" Width="120" Binding="{Binding Author}" /> -->
+            <!--             <DataGridTextColumn Header="Year" Width="50" Binding="{Binding Year}" /> -->
+            <!--             <DataGridTextColumn Header="Publisher" Width="120" Binding="{Binding Publisher}" /> -->
+            <!--             <DataGridTextColumn Header="Keywords" Width="120" Binding="{Binding Keywords}" /> -->
+            <!--             <DataGridTextColumn Header="Create Time" Width="140" -->
+            <!--                                 Binding="{Binding CreateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" /> -->
+            <!--             <DataGridTextColumn Header="Update Time" Width="140" -->
+            <!--                                 Binding="{Binding UpdateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" /> -->
+            <!--         </DataGrid.Columns> -->
+            <!--     </DataGrid> -->
+            <!-- </TabItem> -->
+            <TabItem Header="Article">
+                <controls:BibliographyDataGrid Fields="{Binding ArticleFields}" Bibliographies="{Binding Articles}" />
             </TabItem>
-            <TabItem x:Name="BookTabItem" Header="Book">
-                <DataGrid
-                    x:Name="BookBibliographyDataGrid"
-                    ItemsSource="{Binding Books}"
-                    AutoGenerateColumns="False"
-                    CanUserAddRows="False"
-                    LoadingRow="BibliographyDataGrid_OnLoadingRow">
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected}" />
-                        <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
-                        <DataGridTextColumn Header="Author" Width="120" Binding="{Binding Author}" />
-                        <DataGridTextColumn Header="Year" Width="50" Binding="{Binding Year}" />
-                        <DataGridTextColumn Header="Publisher" Width="120" Binding="{Binding Publisher}" />
-                        <DataGridTextColumn Header="Keywords" Width="120" Binding="{Binding Keywords}" />
-                        <DataGridTextColumn Header="Create Time" Width="140" Binding="{Binding CreateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
-                        <DataGridTextColumn Header="Update Time" Width="140" Binding="{Binding UpdateTime, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+            <TabItem Header="Book">
+                <controls:BibliographyDataGrid Fields="{Binding BookFields}" Bibliographies="{Binding Books}" />
             </TabItem>
         </TabControl>
     </Grid>

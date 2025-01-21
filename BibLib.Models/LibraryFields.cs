@@ -6,9 +6,11 @@ public class LibraryFields
     [
         "Title",
         "Author",
+        "Journal",
         "Year",
         "Keywords",
-        "Create Time"
+        "Create Time",
+        "Update Time"
     ];
 
     public IList<string> Book { get; set; } =
@@ -18,6 +20,7 @@ public class LibraryFields
         "Year",
         "Publisher",
         "Keywords",
-        "Create Time"
+        "Create Time",
+        "Update Time"
     ];
 }

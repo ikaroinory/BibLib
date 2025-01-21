@@ -47,7 +47,7 @@ public partial class LibraryView : Window
                 MessageBox.Show($"{pair.Value} {pair.Key} {word} been inserted.");
             });
 
-        _viewModel.Refresh();
+        _viewModel.RefreshBibliographies();
     }
 
     private void RemoveFromLibraryMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -60,7 +60,7 @@ public partial class LibraryView : Window
             MessageBox.Show($"{pair.Value} {pair.Key} {word} been removed.");
         });
 
-        _viewModel.Refresh();
+        _viewModel.RefreshBibliographies();
     }
 
     private void SettingsMenuItem_OnClick(object sender, RoutedEventArgs e) => new SettingsView().ShowDialog();
