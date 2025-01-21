@@ -81,9 +81,15 @@ public partial class LibraryView : Window
         var selectedItem = (TabItem)LibraryTabControl.SelectedItem;
 
         if (selectedItem == ArticleTabItem)
+        {
             _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = true);
+            ArticleBibliographyDataGrid.Refresh();
+        }
         else if (selectedItem == BookTabItem)
+        {
             _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = true);
+            BookBibliographyDataGrid.Refresh();
+        }
     }
 
     private void DeselectAllMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -91,8 +97,14 @@ public partial class LibraryView : Window
         var selectedItem = (TabItem)LibraryTabControl.SelectedItem;
 
         if (selectedItem == ArticleTabItem)
+        {
             _viewModel.Articles.ToList().ForEach(bib => bib.IsSelected = false);
+            ArticleBibliographyDataGrid.Refresh();
+        }
         else if (selectedItem == BookTabItem)
+        {
             _viewModel.Books.ToList().ForEach(bib => bib.IsSelected = false);
+            BookBibliographyDataGrid.Refresh();
+        }
     }
 }
