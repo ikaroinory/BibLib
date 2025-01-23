@@ -63,8 +63,11 @@ public partial class BibliographyDataGrid : UserControl
             DataGrid.Columns.Add(new DataGridTextColumn
             {
                 Header = field,
-                Binding = new Binding(field.Replace(" ", "")),
-                Width = new DataGridLength(1, DataGridLengthUnitType.Star)
+                Binding = new Binding(field)
+                {
+                    StringFormat = field.Contains("Time") ? "yyyy-MM-dd HH:mm:ss" : null
+                },
+                Width = new DataGridLength(1, DataGridLengthUnitType.Star),
             });
         }
     }
