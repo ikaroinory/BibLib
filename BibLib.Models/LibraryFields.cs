@@ -9,8 +9,8 @@ public class LibraryFields
         "Journal",
         "Year",
         "Keywords",
-        "Create Time",
-        "Update Time"
+        "CreateTime",
+        "UpdateTime"
     ];
 
     public IList<string> Book { get; set; } =
@@ -20,7 +20,7 @@ public class LibraryFields
         "Year",
         "Publisher",
         "Keywords",
-        "Create Time",
-        "Update Time"
+        "CreateTime",
+        "UpdateTime"
     ];
 }
